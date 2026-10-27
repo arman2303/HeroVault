@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Kiosk | Hero Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="founder.html">
+                <span class="brand-mark">H</span>
+                <span class="brand-name">HERO <span>TECH</span></span>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <a class="nav-link" href="founder.html">Founder</a>
+                <a class="nav-link active" href="kiosk.html" aria-current="page">Interactive Kiosk</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="kiosk-section">
+            <div class="container">
+                <p class="eyebrow">HERO TECH INTERACTIVE KIOSK</p>
+                <h1 class="kiosk-title">Equip your squad. <span>Save as a team.</span></h1>
+                <p class="kiosk-intro">
+                    Choose your superhero equipment and quantity to calculate
+                    your group discount and final purchase price.
+                </p>
+
+                <div class="kiosk-layout">
+                    <section class="kiosk-panel" aria-labelledby="form-title">
+                        <h2 id="form-title">Group Discount Calculator</h2>
+                        <p class="panel-description">Fields marked * are required.</p>
+
+                        <form id="discountForm" novalidate>
+                            <div class="form-group">
+                                <label for="customerName">Customer Name *</label>
+                                <input type="text" id="customerName" name="customerName"
+                                       placeholder="Enter your full name" autocomplete="name"
+                                       maxlength="80" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="customerEmail">Email Address *</label>
+                                <input type="email" id="customerEmail" name="customerEmail"
+                                       placeholder="example@email.com" autocomplete="email"
+                                       maxlength="100" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="equipment">Superhero Equipment *</label>
+                                <select id="equipment" name="equipment" required>
+                                    <option value="">-- Select equipment --</option>
+                                    <option value="shield">Energy Shield — RM 150.00</option>
+                                    <option value="gloves">Superpower Gloves — RM 250.00</option>
+                                    <option value="jetpack">Jetpack — RM 500.00</option>
+                                    <option value="suit">Advanced Hero Suit — RM 800.00</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quantity">Quantity (1–100 items) *</label>
+                                <input type="number" id="quantity" name="quantity"
+                                       placeholder="Enter quantity" min="1" max="100"
+                                       step="1" required>
+                            </div>
+
+                            <div class="form-actions">
+                                <button class="cta-button calculate-button" type="submit">
+                                    Calculate Discount
+                                </button>
+                                <button class="reset-button" type="reset">Clear Form</button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <aside class="rules-panel" aria-labelledby="rules-title">
+                        <h2 id="rules-title">Equipment Prices</h2>
+                        <ul class="price-list">
+                            <li><span>Energy Shield</span><strong>RM 150.00</strong></li>
+                            <li><span>Superpower Gloves</span><strong>RM 250.00</strong></li>
+                            <li><span>Jetpack</span><strong>RM 500.00</strong></li>
+                            <li><span>Advanced Hero Suit</span><strong>RM 800.00</strong></li>
+                        </ul>
+
+                        <h2>Group Discount Rules</h2>
+                        <table class="discount-table">
+                            <thead>
+                                <tr><th scope="col">Quantity</th><th scope="col">Discount</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1–2 items</td><td>0%</td></tr>
+                                <tr><td>3–4 items</td><td>5%</td></tr>
+                                <tr><td>5–9 items</td><td>10%</td></tr>
+                                <tr><td>10–100 items</td><td>15%</td></tr>
+                            </tbody>
+                        </table>
+
+                        <p class="rules-note">
+                            Discount depends on the number of items purchased,
+                            not the total price. One equipment type is selected per calculation.
+                        </p>
+                    </aside>
+                </div>
+
+                <section id="resultPanel" class="result-panel" aria-labelledby="result-title"
+                         aria-live="polite" hidden>
+                    <h2 id="result-title">Purchase Summary</h2>
+                    <div class="result-grid">
+                        <p><strong>Customer:</strong> <span id="resultName"></span></p>
+                        <p><strong>Email:</strong> <span id="resultEmail"></span></p>
+                        <p><strong>Equipment:</strong> <span id="resultEquipment"></span></p>
+                        <p><strong>Quantity:</strong> <span id="resultQuantity"></span></p>
+                        <p><strong>Unit Price:</strong> <span id="resultUnitPrice"></span></p>
+                        <p><strong>Subtotal:</strong> <span id="resultSubtotal"></span></p>
+                        <p><strong>Discount Rate:</strong> <span id="resultDiscountRate"></span></p>
+                        <p><strong>You Save:</strong> <span id="resultSavings"></span></p>
+                    </div>
+                    <div class="result-total">
+                        <span>Final Amount</span>
+                        <strong id="resultFinalAmount"></strong>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Hero Tech. ICT600 Individual Assignment.</p>
+        </div>
+    </footer>
+</body>
+</html>
